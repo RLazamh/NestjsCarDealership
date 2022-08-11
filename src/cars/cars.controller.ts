@@ -1,7 +1,9 @@
-import { Body, Controller, Delete, Get, Param, ParseIntPipe, ParseUUIDPipe, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, ParseUUIDPipe, Patch, Post, UsePipes, ValidationPipe } from '@nestjs/common';
+import { CreateCarDto } from './dtos/create-cars.dto';
 import { CarsService } from './cars.service';
 
 @Controller('cars')
+// @UsePipes(ValidationPipe)
 export class CarsController {
   
   // al intyectar la dependencia estoy creando algo similar a esto 
@@ -23,8 +25,8 @@ export class CarsController {
   }
 
   @Post()
-  createCar( @Body() body : any ){
-    return body;
+  createCar( @Body() createCarDto : CreateCarDto ){
+    return createCarDto;
   }
 
   @Patch(':id')
