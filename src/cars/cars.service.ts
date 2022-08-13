@@ -7,21 +7,11 @@ import { Car } from './interfaces/car.interface';
 export class CarsService {
 
     private cars : Car[] = [
-        {
-            id    : uuid(),
-            brand :'ferrari',
-            model : 'Corolla'
-        }, 
-        {
-            id    : uuid(),
-            brand :'Honda',
-            model : 'Civic'
-        }, 
-        {
-            id    : uuid(),
-            brand :'Jeep',
-            model : 'Cheroken'
-        },
+        // {
+        //     id    : uuid(),
+        //     brand :'ferrari',
+        //     model : 'Corolla'
+        // }, 
     ]; 
 
     findAll(){
@@ -75,5 +65,9 @@ export class CarsService {
         this.cars = this.cars.filter(car => car !== carDB );
         return `car with id ${id} was deleted` ;
     }
+
+    fillCarsWithSeed( cars : Car []){
+        return this.cars = cars;
+      }
 
 }

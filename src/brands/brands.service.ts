@@ -8,11 +8,11 @@ import { Brand } from './entities/brand.entity';
 export class BrandsService {
 
   private brands : Brand[] = [
-    {
-      id : uuid(),
-      name : 'Chevrolet',
-      createAt : new Date().getTime()
-    }
+    // {
+    //   id : uuid(),
+    //   name : 'Chevrolet',
+    //   createAt : new Date().getTime()
+    // }
   ]
 
   create(createBrandDto: CreateBrandDto) {
@@ -62,5 +62,9 @@ export class BrandsService {
     this.findOne( id )
     this.brands = this.brands.filter( brand => brand.id !== id )
     return `The brand with #${id} was removed`;
+  }
+
+  fillBrandsWithSeed( brands : Brand []){
+    return this.brands = brands;
   }
 }
